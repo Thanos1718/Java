@@ -1,0 +1,90 @@
+package hi;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+public class arrow {
+
+	public arrow() {
+		// TODO Auto-generated constructor 
+		         JFrame frame=new JFrame("KeyCounter");
+		     
+
+		         JLabel up=new JLabel("UP:0",0);
+		         JLabel down=new JLabel("Down:0",0);
+		         JLabel left=new JLabel("Left:0",0);
+		         JLabel right=new JLabel("Right:0",0);
+		         up.setForeground(Color.white);
+		         down.setForeground(Color.white);
+		         left.setForeground(Color.white);
+		         right.setForeground(Color.white);
+
+		         JPanel panel=new JPanel();
+		         panel.setSize(300,300);
+		         panel.add(up);
+		         panel.add(down);
+		         panel.add(left);
+		         panel.add(right);
+		         panel.setBackground(Color.BLACK);
+
+		         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		         frame.setSize(500,500);
+		         frame.add(panel);
+		         frame.addKeyListener(new KeyListener() {
+                     int upcount=0;
+                     int downcount=0;
+                     int leftcount=0;
+                     int rightcount=0;
+					@Override
+					public void keyTyped(KeyEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void keyPressed(KeyEvent e) {
+						// TODO Auto-generated method stub
+						int keycode=e.getKeyCode();
+						switch(keycode)
+						{
+						  case KeyEvent.VK_UP:
+							  up.setText(" Up:" +Integer.toString(upcount++)+"times");
+							  break;
+						  case KeyEvent.VK_DOWN:
+							  down.setText(" Down:" +Integer.toString(downcount++)+"times");
+							  break;
+						  case KeyEvent.VK_LEFT:
+							  left.setText(" left:" +Integer.toString(leftcount++)+"times");
+							  break;
+						  case KeyEvent.VK_RIGHT:
+							  right.setText(" Right:" +Integer.toString(rightcount++)+"times");
+							  break;
+							  
+						}
+					}
+
+					@Override
+					public void keyReleased(KeyEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+		        	 
+		         });
+		        	 
+		         
+		         frame.setFocusable(true);
+		         frame.add(panel);
+		         
+		         frame.setVisible(true);
+		    }
+		   
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+             new arrow();
+	}
+
+}
